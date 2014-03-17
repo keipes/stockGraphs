@@ -8,7 +8,6 @@
 
     function graph_ticker(ticker_symbol) {
         $.getJSON( "stock/" + ticker_symbol, function( json_result ) {
-            console.log(json_result);
             linegraph(json_result);
         });
     }
@@ -21,7 +20,6 @@
     });
 
     function linegraph(json_result) {
-        console.log(json_result);
         var go_data = {
             labels : json_result.labels,
             datasets : [
@@ -34,7 +32,6 @@
                 }
             ]
         }
-        console.log(go_data);
         var options = {
                         
             //Boolean - If we show the scale above the chart data           
