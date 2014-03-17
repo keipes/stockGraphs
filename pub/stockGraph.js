@@ -7,8 +7,6 @@
     
 
     function graph_ticker(ticker_symbol) {
-        
-        
         $.getJSON( "stock/" + ticker_symbol, function( json_result ) {
             console.log(json_result);
             linegraph(json_result);
@@ -18,8 +16,7 @@
     $("#ticker-input").bind("keypress", function(event) {
         if(event.which == 13) {
             event.preventDefault();
-            graph_ticker('aapl');
-            graph_ticker($("#ticker-input").text())
+            graph_ticker($("#ticker-input").val());
         }
     });
 
