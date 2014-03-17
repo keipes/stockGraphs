@@ -1,9 +1,22 @@
 <html>
-    <body>
-        <h1 id="title"></h1>
-        <canvas id="myChart" width="1800px" height="600px"></canvas>
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/foundation.css">
+<link rel="stylesheet" type="text/css" href="pub/stockGraph.css">
+    <body style>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Ticker
+                    <input id="ticker-input" type="text" placeholder="Enter Ticker Symbol" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <canvas id="myChart" width="1000px" height="600px"></canvas>
+            </div>
+        </div>
     </body>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/foundation.min.js"></script>
     <script src="pub/stockGraph.js"></script>
 </html>
