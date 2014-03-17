@@ -1,17 +1,27 @@
 (function () {
     var ctx = $("#myChart").get(0).getContext("2d");
-    var myNewChart = new Chart(ctx);
-    var company = window.location.search.split("=")[1];
-    graph_ticker(company);
 
+    var company = window.location.search.split("=")[1];
+    var myNewChart = new Chart(ctx);
+    graph_ticker(company);
+    
 
     function graph_ticker(ticker_symbol) {
-        $("#title").text(ticker_symbol);
+        
+        
         $.getJSON( "stock/" + ticker_symbol, function( json_result ) {
+            console.log(json_result);
             linegraph(json_result);
         });
     }
     
+    $("#ticker-input").bind("keypress", function(event) {
+        if(event.which == 13) {
+            event.preventDefault();
+            graph_ticker('aapl');
+            graph_ticker($("#ticker-input").text())
+        }
+    });
 
     function linegraph(json_result) {
         console.log(json_result);
@@ -110,6 +120,6 @@
             //Function - Fires when the animation is complete
             onAnimationComplete : null  
         }
-        new Chart(ctx).Line(go_data, options);
+        myNewChart.Line(go_data, options);
     }
 }());
